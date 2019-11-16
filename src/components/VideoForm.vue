@@ -2,7 +2,7 @@
   <form>
     <label class="label">YouTube link</label>&nbsp;
 
-    <input class="input" type="text" v-model="videoUrl" width="100%" />&nbsp;
+    <input class="input" type="text" v-model="videoUrl" />&nbsp;
     
     <input class="button is-primary margin-bottom" type="submit" @click.prevent="submit" />
   </form>

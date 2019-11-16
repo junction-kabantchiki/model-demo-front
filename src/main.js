@@ -7,10 +7,12 @@ import "./registerServiceWorker";
 import ApiService from "./common/api.service";
 
 import Trend from "vuetrend"
+import AsyncComputed from 'vue-async-computed'
 
 Vue.config.productionTip = false;
 Vue.use(VueYoutube);
 Vue.use(Trend);
+Vue.use(AsyncComputed)
 
 ApiService.init();
 

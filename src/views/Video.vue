@@ -13,7 +13,7 @@
       </div>
       <div class="plot-wrapper">
         <trend
-          :data="[0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 0]"
+          :data=sad
           :gradient="['#6fa8dc', '#42b983', '#2c3e50']"
           auto-draw
           smooth
@@ -25,6 +25,7 @@
 
 <script>
 import VideoForm from "@/components/VideoForm";
+import ApiService from "@/common/api.service";
 
 export default {
   name: "video-page",
@@ -32,10 +33,18 @@ export default {
   props: {
     videoId: { type: String, required: true },
   },
+  data() {
+    return {
+      sad: [],
+    };
+  },
   computed: {
     player() {
       return this.$refs.youtube.player;
     },
+  },
+  created() {
+    this.getSad().then(vals => this.sad = vals);
   },
   methods: {
     async playVideo() {
@@ -44,6 +53,14 @@ export default {
     },
     playing() {
       // on play
+    },
+    async predictions() {
+      let video = (await ApiService.video(this.videoId)).data.predictions;
+      console.log(video);
+      return video;
+    },
+    async getSad() {
+      return (await this.predictions()).map(i => i.sad); 
     },
   },
 };
