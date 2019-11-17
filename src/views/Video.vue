@@ -3,7 +3,7 @@
     <div class="banner">
       <div class="container">
         <h1 class="logo-font">We Hear You</h1>
-        <p>Voice analysis demo</p>
+        <p>Anger detection demo. <a href="https://docs.google.com/presentation/d/1_VYIBujfyY4zuhJbMxfWaP9HFZ0pEx6uicuaJa0Jpzo">Slides</a></p>
       </div>
     </div>
     <div class="container page">
@@ -60,13 +60,18 @@ export default {
       return video;
     },
     async getSad() {
-      return (await this.predictions()).map(i => i.sad); 
+      return (await this.predictions()).map(i => i.angry); 
     },
   },
 };
 </script>
 
 <style>
+  .banner {
+    background-color: #3f6055 !important;
+    padding-top: 1em !important;
+    padding-bottom: 1em !important;
+  }
   .video-wrapper {
     position: relative;
     padding-bottom: 56.25%; /* 16:9 */

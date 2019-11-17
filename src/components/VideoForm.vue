@@ -15,7 +15,7 @@ export default {
   name: "VideoForm",
   data() {
     return {
-      videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      videoUrl: "https://www.youtube.com/watch?v=IYnsfV5N2n8",
     };
   },
   methods: {
